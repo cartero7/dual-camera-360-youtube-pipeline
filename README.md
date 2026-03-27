@@ -26,7 +26,7 @@ youtube360_next/
 
 ## Configuracion
 
-Parte de [config/youtube360.env.example](/home/carla/cam/360_streaming/youtube360_next/config/youtube360.env.example) y crea tu copia local en `config/youtube360.env`.
+Parte de [config/youtube360.env.example](config/youtube360.env.example) y crea tu copia local en `config/youtube360.env`.
 
 `config/youtube360.env` no debe versionarse porque puede contener credenciales RTSP y la `STREAM_KEY`.
 
@@ -113,10 +113,10 @@ Arranque manual:
 
 ## Dónde mirar
 
-- operacion y watchdog: [docs/OPERATIONS.md](/home/carla/cam/360_streaming/youtube360_next/docs/OPERATIONS.md)
-- pendientes de ajuste con hardware real: [docs/pending_with_cameras.md](/home/carla/cam/360_streaming/youtube360_next/docs/pending_with_cameras.md)
-- servicio systemd: [systemd/youtube360.service](/home/carla/cam/360_streaming/youtube360_next/systemd/youtube360.service)
-- configuracion de ejemplo: [config/youtube360.env.example](/home/carla/cam/360_streaming/youtube360_next/config/youtube360.env.example)
+- operacion y watchdog: [docs/OPERATIONS.md](docs/OPERATIONS.md)
+- pendientes de ajuste con hardware real: [docs/pending_with_cameras.md](docs/pending_with_cameras.md)
+- servicio systemd: [systemd/youtube360.service](systemd/youtube360.service)
+- configuracion de ejemplo: [config/youtube360.env.example](config/youtube360.env.example)
 
 ## Credits & License
 
