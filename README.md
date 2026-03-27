@@ -133,6 +133,6 @@ Arranque manual:
 
 **Repository:** `dual-camera-360-youtube-pipeline`
 
-**License:** Pending
+**License:** MIT
 
 Made for 360 live streaming and calibration.
