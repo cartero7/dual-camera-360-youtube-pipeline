@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "${BIN_DIR}/.." && pwd)"
+SCRIPTS_DIR="${PROJECT_DIR}/scripts"
+
+usage() {
+  cat <<EOF
+Uso: ./bin/youtube360 <comando>
+
+Comandos:
+  env-check
+  youtube-preflight
+  validate-cameras
+  validate-crops
+  calibration-test
+  calibration-sweep
+  geometry-diagnostic
+  stream-youtube
+  watchdog
+  debug-snapshot
+  validate-recordings
+  cleanup-recordings
+EOF
+}
+
+cmd="${1:-}"
+
+case "${cmd}" in
+  env-check)
+    # shellcheck disable=SC1091
+    source "${SCRIPTS_DIR}/lib.sh"
+    load_config
+    require_cmd ffmpeg ffprobe timeout sed awk grep date
+    check_required_settings
+    print_pipeline_summary
+    ;;
+  youtube-preflight)
+    exec "${SCRIPTS_DIR}/youtube_preflight.sh"
+    ;;
+  validate-cameras)
+    exec "${SCRIPTS_DIR}/validate_cameras.sh"
+    ;;
+  validate-crops)
+    exec "${SCRIPTS_DIR}/validate_crops.sh"
+    ;;
+  calibration-test)
+    shift
+    exec "${SCRIPTS_DIR}/calibration_test.sh" "$@"
+    ;;
+  calibration-sweep)
+    shift
+    exec "${SCRIPTS_DIR}/calibration_sweep.sh" "$@"
+    ;;
+  geometry-diagnostic)
+    exec "${SCRIPTS_DIR}/geometry_diagnostic.sh"
+    ;;
+  stream-youtube)
+    exec "${SCRIPTS_DIR}/stream_youtube.sh"
+    ;;
+  watchdog)
+    exec "${SCRIPTS_DIR}/watchdog.sh"
+    ;;
+  debug-snapshot)
+    exec "${SCRIPTS_DIR}/debug_snapshot.sh"
+    ;;
+  validate-recordings)
+    exec "${SCRIPTS_DIR}/validate_recordings.sh"
+    ;;
+  cleanup-recordings)
+    exec "${SCRIPTS_DIR}/cleanup_recordings.sh"
+    ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac

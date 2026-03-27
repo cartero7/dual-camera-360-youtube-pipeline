@@ -1,0 +1,38 @@
+# Secrets and local overrides
+config/youtube360.env
+*.local
+
+# Runtime state and generated outputs
+runtime/
+artifacts/
+legacy/
+logs/
+recordings/
+tmp/
+
+# Offline calibration and historical notes not used in the operational repo
+config/offline_dualfisheye_*.json
+docs/audit_legacy.md
+docs/strategy.md
+
+# Test helpers not needed in the main operational repo
+scripts/local_test.sh
+scripts/calibration/offline_dualfisheye_stitch.py
+scripts/test/
+scripts/mock_dual_test.sh
+scripts/simulate_rtmp_watchdog.sh
+
+# Python/cache
+**/__pycache__/
+*.pyc
+
+# Media and generated diagnostics
+*.mp4
+*.mkv
+*.mov
+*.jpg
+*.jpeg
+*.png
+*.tsv
+*.log
+*.pid

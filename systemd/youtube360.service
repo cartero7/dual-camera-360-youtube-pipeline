@@ -1,0 +1,19 @@
+[Unit]
+Description=YouTube 360 dual RTSP pipeline
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/carla/cam/360_streaming/youtube360_next
+EnvironmentFile=/home/carla/cam/360_streaming/youtube360_next/config/youtube360.env
+ExecStart=/home/carla/cam/360_streaming/youtube360_next/bin/youtube360 watchdog
+Restart=always
+RestartSec=5
+KillSignal=SIGTERM
+TimeoutStopSec=20
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
