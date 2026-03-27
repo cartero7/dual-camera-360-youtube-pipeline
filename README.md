@@ -131,7 +131,7 @@ Arranque manual:
 
 **Technologies:** Bash, FFmpeg, FFprobe, systemd
 
-**Repository:** `dual-camera-360-youtube-pipeline`
+**Repository:** `https://github.com/cartero7/dual-camera-360-youtube-pipeline`
 
 **License:** MIT
 
